@@ -18,8 +18,6 @@ fixit-campus/
 ├── design/ # Wireframes, prototipo y guía de estilo (DI)
 ├── docs/
 │ ├── api/ # Documentación de la API (EN)
-│ ├── english/ # Guía rápida, glosario, informe mensual
-│ ├── ipe/ # Lean Canvas, presupuesto, actas
 │ ├── digitalizacion/
 │ └── sostenibilidad/
 ├── README.md # En inglés
