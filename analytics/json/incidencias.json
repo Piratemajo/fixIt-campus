@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "tipo": "Infraestructura",
+        "descripcion": "Gotera en el techo del aula 104 durante días de lluvia.",
+        "gravedad": "Media",
+        "ubicacion": "Aula 104"
+    },
+    {
+        "id": 2,
+        "tipo": "Tecnología",
+        "descripcion": "El proyector del salón de actos no enciende.",
+        "gravedad": "Media",
+        "ubicacion": "Salón de actos"
+    },
+    {
+        "id": 3,
+        "tipo": "Mobiliario",
+        "descripcion": "Silla rota con riesgo de corte para los alumnos.",
+        "gravedad": "Baja",
+        "ubicacion": "Aula 202"
+    },
+    {
+        "id": 4,
+        "tipo": "Convivencia",
+        "descripcion": "Disputa verbal entre dos alumnos durante el recreo.",
+        "gravedad": "Alta",
+        "ubicacion": "Patio central"
+    },
+    {
+        "id": 5,
+        "tipo": "Instalaciones",
+        "descripcion": "Falta de papel higiénico y jabón en los baños de la planta baja.",
+        "gravedad": "Media",
+        "ubicacion": "Baños planta baja"
+    },
+    {
+        "id": 6,
+        "tipo": "Tecnología",
+        "descripcion": "Conexión Wi-Fi inestable en el departamento de matemáticas.",
+        "gravedad": "Baja",
+        "ubicacion": "Sala de profesores"
+    },
+    {
+        "id": 7,
+        "tipo": "Climatización",
+        "descripcion": "La calefacción no funciona en el aula 301.",
+        "gravedad": "Alta",
+        "ubicacion": "Aula 301"
+    },
+    {
+        "id": 8,
+        "tipo": "Seguridad",
+        "descripcion": "Puerta de emergencia bloqueada con cajas de material deportivo.",
+        "gravedad": "Alta",
+        "ubicacion": "Gimnasio"
+    },
+    {
+        "id": 9,
+        "tipo": "Mobiliario",
+        "descripcion": "Pizarra blanca desprendida parcialmente de la pared.",
+        "gravedad": "Alta",
+        "ubicacion": "Laboratorio de Física"
+    },
+    {
+        "id": 10,
+        "tipo": "Instalaciones",
+        "descripcion": "Grifo roto en el lavabo del laboratorio de química.",
+        "gravedad": "Media",
+        "ubicacion": "Laboratorio de Química"
+    },
+    {
+        "id": 11,
+        "tipo": "Limpieza",
+        "descripcion": "Acumulación de residuos y restos de comida en el patio trasero.",
+        "gravedad": "Baja",
+        "ubicacion": "Patio trasero"
+    },
+    {
+        "id": 12,
+        "tipo": "Convivencia",
+        "descripcion": "Uso no autorizado de teléfonos móviles en clase tras varias advertencias.",
+        "gravedad": "Baja",
+        "ubicacion": "Aula 105"
+    },
+    {
+        "id": 13,
+        "tipo": "Infraestructura",
+        "descripcion": "Bombilla fundida en el pasillo principal del bloque B.",
+        "gravedad": "Baja",
+        "ubicacion": "Pasillo bloque B"
+    },
+    {
+        "id": 14,
+        "tipo": "Material escolar",
+        "descripcion": "Falta de microscopios operativos para la práctica de biología.",
+        "gravedad": "Media",
+        "ubicacion": "Laboratorio de Biología"
+    },
+    {
+        "id": 15,
+        "tipo": "Tecnología",
+        "descripcion": "El ordenador de la mesa del profesor no reconoce el teclado.",
+        "gravedad": "Baja",
+        "ubicacion": "Aula 204"
+    },
+    {
+        "id": 16,
+        "tipo": "Seguridad",
+        "descripcion": "Ventana con cristal astillado en el segundo piso.",
+        "gravedad": "Alta",
+        "ubicacion": "Pasillo 2ª planta"
+    },
+    {
+        "id": 17,
+        "tipo": "Convivencia",
+        "descripcion": "Inasistencia injustificada reiterada de un alumno a las primeras horas.",
+        "gravedad": "Media",
+        "ubicacion": "Secretaría / Jefatura"
+    },
+    {
+        "id": 18,
+        "tipo": "Instalaciones",
+        "descripcion": "Atasco en el desagüe del vestuario masculino.",
+        "gravedad": "Alta",
+        "ubicacion": "Vestuarios polideportivo"
+    },
+    {
+        "id": 19,
+        "tipo": "Mobiliario",
+        "descripcion": "Puerta de un armario archivador atascada con documentos dentro.",
+        "gravedad": "Baja",
+        "ubicacion": "Departamento de Orientación"
+    },
+    {
+        "id": 20,
+        "tipo": "Infraestructura",
+        "descripcion": "Timbre de fin de clase no suena de forma sincronizada.",
+        "gravedad": "Baja",
+        "ubicacion": "Sistema general"
+    }
+]
