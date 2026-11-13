@@ -8,142 +8,162 @@ incidencias_json = """
     {
         "id": 1,
         "tipo": "Infraestructura",
-        "descripcion": "Gotera en el techo del aula 104 durante días de lluvia.",
+        "descripcion": "Filtración de agua en el techo del aula 104 durante episodios de lluvia.",
         "gravedad": "Media",
-        "ubicacion": "Aula 104"
+        "ubicacion": "Aula 104",
+        "estado": "Abierta"
     },
     {
         "id": 2,
         "tipo": "Tecnología",
-        "descripcion": "El proyector del salón de actos no enciende.",
+        "descripcion": "Fallo de encendido en el proyector principal del salón de actos.",
         "gravedad": "Media",
-        "ubicacion": "Salón de actos"
+        "ubicacion": "Salón de actos",
+        "estado": "Abierta"
     },
     {
         "id": 3,
         "tipo": "Mobiliario",
-        "descripcion": "Silla rota con riesgo de corte para los alumnos.",
-        "gravedad": "Baja",
-        "ubicacion": "Aula 202"
+        "descripcion": "Silla de alumno con rotura estructural y riesgo de corte.",
+        "gravedad": "Alta",
+        "ubicacion": "Aula 202",
+        "estado": "Abierta"
     },
     {
         "id": 4,
         "tipo": "Convivencia",
-        "descripcion": "Disputa verbal entre dos alumnos durante el recreo.",
+        "descripcion": "Incidente de altercado verbal entre alumnos durante el periodo de recreo.",
         "gravedad": "Alta",
-        "ubicacion": "Patio central"
+        "ubicacion": "Patio central",
+        "estado": "Resuelta"
     },
     {
         "id": 5,
         "tipo": "Instalaciones",
-        "descripcion": "Falta de papel higiénico y jabón en los baños de la planta baja.",
+        "descripcion": "Desabastecimiento recurrente de papel higiénico y jabón de manos.",
         "gravedad": "Media",
-        "ubicacion": "Baños planta baja"
+        "ubicacion": "Baños planta baja",
+        "estado": "Resuelta"
     },
     {
         "id": 6,
         "tipo": "Tecnología",
-        "descripcion": "Conexión Wi-Fi inestable en el departamento de matemáticas.",
+        "descripcion": "Inestabilidad intermitente en la señal de red Wi-Fi.",
         "gravedad": "Baja",
-        "ubicacion": "Sala de profesores"
+        "ubicacion": "Sala de profesores",
+        "estado": "Abierta"
     },
     {
         "id": 7,
         "tipo": "Climatización",
-        "descripcion": "La calefacción no funciona en el aula 301.",
+        "descripcion": "Inoperatividad del sistema de calefacción central.",
         "gravedad": "Alta",
-        "ubicacion": "Aula 301"
+        "ubicacion": "Aula 301",
+        "estado": "Abierta"
     },
     {
         "id": 8,
         "tipo": "Seguridad",
-        "descripcion": "Puerta de emergencia bloqueada con cajas de material deportivo.",
-        "gravedad": "Alta",
-        "ubicacion": "Gimnasio"
+        "descripcion": "Obstrucción de la salida de emergencia con almacenamiento de material deportivo.",
+        "gravedad": "Crítica",
+        "ubicacion": "Gimnasio",
+        "estado": "Resuelta"
     },
     {
         "id": 9,
-        "tipo": "Mobiliario",
-        "descripcion": "Pizarra blanca desprendida parcialmente de la pared.",
+        "tipo": "Infraestructura",
+        "descripcion": "Desprendimiento parcial de los anclajes de la pizarra mural.",
         "gravedad": "Alta",
-        "ubicacion": "Laboratorio de Física"
+        "ubicacion": "Laboratorio de Física",
+        "estado": "Abierta"
     },
     {
         "id": 10,
         "tipo": "Instalaciones",
-        "descripcion": "Grifo roto en el lavabo del laboratorio de química.",
+        "descripcion": "Avería en la llave de paso y grifería del lavabo.",
         "gravedad": "Media",
-        "ubicacion": "Laboratorio de Química"
+        "ubicacion": "Laboratorio de Química",
+        "estado": "Abierta"
     },
     {
         "id": 11,
         "tipo": "Limpieza",
-        "descripcion": "Acumulación de residuos y restos de comida en el patio trasero.",
+        "descripcion": "Acumulación de residuos sólidos y restos orgánicos en zona exterior.",
         "gravedad": "Baja",
-        "ubicacion": "Patio trasero"
+        "ubicacion": "Patio trasero",
+        "estado": "Resuelta"
     },
     {
         "id": 12,
         "tipo": "Convivencia",
-        "descripcion": "Uso no autorizado de teléfonos móviles en clase tras varias advertencias.",
+        "descripcion": "Incumplimiento reiterado de la normativa sobre dispositivos móviles en el aula.",
         "gravedad": "Baja",
-        "ubicacion": "Aula 105"
+        "ubicacion": "Aula 105",
+        "estado": "Resuelta"
     },
     {
         "id": 13,
         "tipo": "Infraestructura",
-        "descripcion": "Bombilla fundida en el pasillo principal del bloque B.",
+        "descripcion": "Sustitución requerida de luminaria fundida en zona de tránsito.",
         "gravedad": "Baja",
-        "ubicacion": "Pasillo bloque B"
+        "ubicacion": "Pasillo bloque B",
+        "estado": "Resuelta"
     },
     {
         "id": 14,
         "tipo": "Material escolar",
-        "descripcion": "Falta de microscopios operativos para la práctica de biología.",
+        "descripcion": "Insuficiencia de equipos ópticos operativos para prácticas experimentales.",
         "gravedad": "Media",
-        "ubicacion": "Laboratorio de Biología"
+        "ubicacion": "Laboratorio de Biología",
+        "estado": "Abierta"
     },
     {
         "id": 15,
         "tipo": "Tecnología",
-        "descripcion": "El ordenador de la mesa del profesor no reconoce el teclado.",
+        "descripcion": "Fallo de periférico (teclado no reconocido por la estación de trabajo docente).",
         "gravedad": "Baja",
-        "ubicacion": "Aula 204"
+        "ubicacion": "Aula 204",
+        "estado": "Resuelta"
     },
     {
         "id": 16,
         "tipo": "Seguridad",
-        "descripcion": "Ventana con cristal astillado en el segundo piso.",
+        "descripcion": "Rotura de panel de vidrio con formación de astillas expuestas.",
         "gravedad": "Alta",
-        "ubicacion": "Pasillo 2ª planta"
+        "ubicacion": "Pasillo 2ª planta",
+        "estado": "Abierta"
     },
     {
         "id": 17,
         "tipo": "Convivencia",
-        "descripcion": "Inasistencia injustificada reiterada de un alumno a las primeras horas.",
+        "descripcion": "Absentismo injustificado y continuado en el primer tramo horario.",
         "gravedad": "Media",
-        "ubicacion": "Secretaría / Jefatura"
+        "ubicacion": "Secretaría / Jefatura",
+        "estado": "Abierta"
     },
     {
         "id": 18,
         "tipo": "Instalaciones",
-        "descripcion": "Atasco en el desagüe del vestuario masculino.",
+        "descripcion": "Obstrucción completa en el sistema de evacuación de aguas de los aseos.",
         "gravedad": "Alta",
-        "ubicacion": "Vestuarios polideportivo"
+        "ubicacion": "Vestuarios polideportivo",
+        "estado": "Abierta"
     },
     {
         "id": 19,
         "tipo": "Mobiliario",
-        "descripcion": "Puerta de un armario archivador atascada con documentos dentro.",
+        "descripcion": "Bloqueo mecánico en el mecanismo de apertura del archivador metálico.",
         "gravedad": "Baja",
-        "ubicacion": "Departamento de Orientación"
+        "ubicacion": "Departamento de Orientación",
+        "estado": "Resuelta"
     },
     {
         "id": 20,
         "tipo": "Infraestructura",
-        "descripcion": "Timbre de fin de clase no suena de forma sincronizada.",
+        "descripcion": "Desincronización en la señal acústica de finalización de clases.",
         "gravedad": "Baja",
-        "ubicacion": "Sistema general"
+        "ubicacion": "Sistema general",
+        "estado": "Resuelta"
     }
 ]
 
