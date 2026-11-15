@@ -4,6 +4,7 @@
 /.settings/
 /target/
 /.idea/
+/idea/backend/
 /.vscode/
 /data-storage/
 /javadocs/
