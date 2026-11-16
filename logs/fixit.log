@@ -1,0 +1,17 @@
+2026-11-16 11:46:51.036 INFO  [main] [sin-id] com.fixitcampus.psp.Main - Esto arranca
+2026-11-16 11:46:51.053 INFO  [vigilante] [sin-id] com.fixitcampus.psp.Main - Vigilante: 0 correos pendientes
+2026-11-16 11:46:51.055 INFO  [pool-2-thread-3] [sin-id] c.f.psp.DeclaracionIncidencia - FIX-3 declarada; el correo se envia en segundo plano
+2026-11-16 11:46:51.055 INFO  [pool-2-thread-2] [sin-id] c.f.psp.DeclaracionIncidencia - FIX-2 declarada; el correo se envia en segundo plano
+2026-11-16 11:46:51.055 INFO  [pool-2-thread-1] [sin-id] c.f.psp.DeclaracionIncidencia - FIX-1 declarada; el correo se envia en segundo plano
+2026-11-16 11:46:51.056 INFO  [pool-2-thread-3] [sin-id] c.f.psp.DeclaracionIncidencia - FIX-4 declarada; el correo se envia en segundo plano
+2026-11-16 11:46:51.056 INFO  [pool-2-thread-2] [sin-id] c.f.psp.DeclaracionIncidencia - FIX-5 declarada; el correo se envia en segundo plano
+2026-11-16 11:46:51.057 INFO  [main] [sin-id] com.fixitcampus.psp.Main - Correos pendientes según el Future: 4
+2026-11-16 11:46:51.366 INFO  [enviador-correos] [sin-id] com.fixitcampus.psp.EnviadorCorreos - Correo enviado: FIX-2 en B-T1: Cable suelto junto al cuadro
+2026-11-16 11:46:51.680 INFO  [enviador-correos] [sin-id] com.fixitcampus.psp.EnviadorCorreos - Correo enviado: FIX-3 en A-B1: Grifo que gotea
+2026-11-16 11:46:51.997 INFO  [enviador-correos] [sin-id] com.fixitcampus.psp.EnviadorCorreos - Correo enviado: FIX-1 en A-01: El proyector no enciende
+2026-11-16 11:46:52.060 INFO  [vigilante] [sin-id] com.fixitcampus.psp.Main - Vigilante: 1 correos pendientes
+2026-11-16 11:46:52.311 INFO  [enviador-correos] [sin-id] com.fixitcampus.psp.EnviadorCorreos - Correo enviado: FIX-4 en B-12: Silla rota
+2026-11-16 11:46:52.623 INFO  [enviador-correos] [sin-id] com.fixitcampus.psp.EnviadorCorreos - Correo enviado: FIX-5 en A-L1: Ordenador sin red
+2026-11-16 11:46:52.623 INFO  [main] [sin-id] com.fixitcampus.psp.Main - Correos enviados: 5. Hilo de correos: TERMINATED
+2026-11-16 11:46:52.624 WARN  [main] [sin-id] com.fixitcampus.psp.Main - Librerias cosas externas
+2026-11-16 11:46:52.624 INFO  [vigilante] [sin-id] com.fixitcampus.psp.Main - Vigilante parado
