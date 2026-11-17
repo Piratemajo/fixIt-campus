@@ -24,7 +24,7 @@ public class Connection {
         }
     }
 
-        protected void closeConnection () {
+        protected static void closeConnection () {
             try {
                 if (connection != null && !connection.isClosed()) {
                     connection.close();
