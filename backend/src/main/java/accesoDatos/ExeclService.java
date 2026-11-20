@@ -7,17 +7,26 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import connection.Connection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class ExeclService extends Connection {
 
-    static void main(){
+    private static final Logger log = LoggerFactory.getLogger(ExeclService.class);
+
+    public static void main(String[] args) {
+        
         crearPlantillas("Excel.xlsx");
+        
     }
+    
 
     private static void crearPlantillas(String ruta) {
+        log.info("Creando plantilla Excel en {}", ruta);
         try (XSSFWorkbook libro = new XSSFWorkbook(); FileOutputStream file = new FileOutputStream(ruta)) {
 
             String[] hojas = {
@@ -48,6 +57,7 @@ public class ExeclService extends Connection {
                 Sheet hoja = libro.createSheet(h1); 
                 Row headerRow = hoja.createRow(0);
                 String[] columnas = obtenerColumnasParaTabla(h1);
+                log.debug("Hoja {} con {} columnas", h1, columnas.length);
                 
 
                 for (int i = 0; i < columnas.length; i++) {
@@ -64,10 +74,12 @@ public class ExeclService extends Connection {
             
             libro.write(file);
             System.out.println("Plantilla Excel generada con éxito.");
+            log.info("Plantilla Excel generada con éxito: {}", ruta);
 
             
         } catch (Exception e) {
             System.out.println("Error al crear el Excel: " + e.getMessage());
+            log.error("Error al crear el Excel {}", ruta, e);
         } // <-- Aquí cierra el try-catch
     } // <-- Aquí cierra el método crearPlantillas
 
@@ -98,6 +110,7 @@ public class ExeclService extends Connection {
             case "log_operacion": 
                 return new String[]{"id", "fecha", "nivel", "origen", "operacion", "tabla", "registro_id", "usuario_id", "mensaje"};
             default: 
+                log.warn("Tabla desconocida: {}", tabla);
                 return new String[]{"id"};
         }
     } // <-- Aquí cierra el método obtenerColumnasParaTabla
