@@ -1,0 +1,43 @@
+# =====================================================================
+#  FixIt Campus · Servicios en Docker
+#
+#  Primera vez:
+#      cp .env.example .env        (y cambia la contraseña)
+#      docker compose up -d
+#
+#  La primera vez que arranca con el volumen vacío, PostgreSQL ejecuta
+#  solo los scripts montados en /docker-entrypoint-initdb.d, en orden
+#  alfabético. Las siguientes veces NO los vuelve a ejecutar: los datos
+#  se conservan en el volumen «pgdata».
+#
+#  Volver a empezar desde cero (borra todos los datos):
+#      docker compose down -v
+#      docker compose up -d
+# =====================================================================
+
+
+services:
+
+  db:
+    image: postgres:16
+    container_name: fixit-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-fixit_campus}
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      TZ: Europe/Madrid
+    command: ["postgres", "-c", "timezone=Europe/Madrid", "-c", "log_timezone=Europe/Madrid"]
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/estructura.sql:/docker-entrypoint-initdb.d/estructura.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:
