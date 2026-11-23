@@ -20,8 +20,8 @@ public class Main {
 
     // Datos de conexión a la base de datos (cámbialos por los vuestros)
     private static final String URL = "jdbc:postgresql://localhost:5432/fixit_campus";
-    private static final String USUARIO = "fixit";
-    private static final String PASSWORD = "cambia_esta_contraseña";
+    private static final String USUARIO = "root";
+    private static final String PASSWORD = "root";
 
     private static final String EXCEL_RELLENO = "Excel_relleno.xlsx";
 
