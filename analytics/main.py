@@ -1,172 +1,67 @@
+"""Analiza el JSON de incidencias y guarda los gráficos en graficos/."""
+
+from datetime import date
+from io import BytesIO
+from pathlib import Path
+
 import matplotlib.pyplot as plt
-import json
+
+from analisis import (espacios_con_mas_averias, fuera_de_plazo,
+                      tiempo_medio_resolucion)
+from datos import cargar_incidencias
+from graficos import grafico_barras
+
+CARPETA = Path(__file__).parent
+FICHERO_JSON = CARPETA / "data" / "incidencias.json"
+SALIDA = CARPETA / "graficos"
 
 
-incidencias_json = """
-
-[
-    {
-        "id": 1,
-        "tipo": "Infraestructura",
-        "descripcion": "Gotera en el techo del aula 104 durante días de lluvia.",
-        "gravedad": "Media",
-        "ubicacion": "Aula 104"
-    },
-    {
-        "id": 2,
-        "tipo": "Tecnología",
-        "descripcion": "El proyector del salón de actos no enciende.",
-        "gravedad": "Media",
-        "ubicacion": "Salón de actos"
-    },
-    {
-        "id": 3,
-        "tipo": "Mobiliario",
-        "descripcion": "Silla rota con riesgo de corte para los alumnos.",
-        "gravedad": "Baja",
-        "ubicacion": "Aula 202"
-    },
-    {
-        "id": 4,
-        "tipo": "Convivencia",
-        "descripcion": "Disputa verbal entre dos alumnos durante el recreo.",
-        "gravedad": "Alta",
-        "ubicacion": "Patio central"
-    },
-    {
-        "id": 5,
-        "tipo": "Instalaciones",
-        "descripcion": "Falta de papel higiénico y jabón en los baños de la planta baja.",
-        "gravedad": "Media",
-        "ubicacion": "Baños planta baja"
-    },
-    {
-        "id": 6,
-        "tipo": "Tecnología",
-        "descripcion": "Conexión Wi-Fi inestable en el departamento de matemáticas.",
-        "gravedad": "Baja",
-        "ubicacion": "Sala de profesores"
-    },
-    {
-        "id": 7,
-        "tipo": "Climatización",
-        "descripcion": "La calefacción no funciona en el aula 301.",
-        "gravedad": "Alta",
-        "ubicacion": "Aula 301"
-    },
-    {
-        "id": 8,
-        "tipo": "Seguridad",
-        "descripcion": "Puerta de emergencia bloqueada con cajas de material deportivo.",
-        "gravedad": "Alta",
-        "ubicacion": "Gimnasio"
-    },
-    {
-        "id": 9,
-        "tipo": "Mobiliario",
-        "descripcion": "Pizarra blanca desprendida parcialmente de la pared.",
-        "gravedad": "Alta",
-        "ubicacion": "Laboratorio de Física"
-    },
-    {
-        "id": 10,
-        "tipo": "Instalaciones",
-        "descripcion": "Grifo roto en el lavabo del laboratorio de química.",
-        "gravedad": "Media",
-        "ubicacion": "Laboratorio de Química"
-    },
-    {
-        "id": 11,
-        "tipo": "Limpieza",
-        "descripcion": "Acumulación de residuos y restos de comida en el patio trasero.",
-        "gravedad": "Baja",
-        "ubicacion": "Patio trasero"
-    },
-    {
-        "id": 12,
-        "tipo": "Convivencia",
-        "descripcion": "Uso no autorizado de teléfonos móviles en clase tras varias advertencias.",
-        "gravedad": "Baja",
-        "ubicacion": "Aula 105"
-    },
-    {
-        "id": 13,
-        "tipo": "Infraestructura",
-        "descripcion": "Bombilla fundida en el pasillo principal del bloque B.",
-        "gravedad": "Baja",
-        "ubicacion": "Pasillo bloque B"
-    },
-    {
-        "id": 14,
-        "tipo": "Material escolar",
-        "descripcion": "Falta de microscopios operativos para la práctica de biología.",
-        "gravedad": "Media",
-        "ubicacion": "Laboratorio de Biología"
-    },
-    {
-        "id": 15,
-        "tipo": "Tecnología",
-        "descripcion": "El ordenador de la mesa del profesor no reconoce el teclado.",
-        "gravedad": "Baja",
-        "ubicacion": "Aula 204"
-    },
-    {
-        "id": 16,
-        "tipo": "Seguridad",
-        "descripcion": "Ventana con cristal astillado en el segundo piso.",
-        "gravedad": "Alta",
-        "ubicacion": "Pasillo 2ª planta"
-    },
-    {
-        "id": 17,
-        "tipo": "Convivencia",
-        "descripcion": "Inasistencia injustificada reiterada de un alumno a las primeras horas.",
-        "gravedad": "Media",
-        "ubicacion": "Secretaría / Jefatura"
-    },
-    {
-        "id": 18,
-        "tipo": "Instalaciones",
-        "descripcion": "Atasco en el desagüe del vestuario masculino.",
-        "gravedad": "Alta",
-        "ubicacion": "Vestuarios polideportivo"
-    },
-    {
-        "id": 19,
-        "tipo": "Mobiliario",
-        "descripcion": "Puerta de un armario archivador atascada con documentos dentro.",
-        "gravedad": "Baja",
-        "ubicacion": "Departamento de Orientación"
-    },
-    {
-        "id": 20,
-        "tipo": "Infraestructura",
-        "descripcion": "Timbre de fin de clase no suena de forma sincronizada.",
-        "gravedad": "Baja",
-        "ubicacion": "Sistema general"
-    }
-]
-
-
-
-"""
-
-def mostrar_grafica():
-    data = json.loads(incidencias_json)
-
-
-    gravedad_map = {"Baja": 1, "Media": 2, "Alta": 3}
-
-    x = [incidencia["id"] for incidencia in data]
-    y = [gravedad_map[incidencia["gravedad"]] for incidencia in data]  
-
-    plt.figure(figsize=(10,4))
-    plt.bar(x, y, color='pink')
-    plt.xlabel('ID incidencia')
-    plt.ylabel('Gravedad')
-    plt.title('Gravedad por incidencia')
-    plt.ylim(0, 3.5)
-    plt.yticks([1, 2, 3], ['Baja', 'Media', 'Alta'])
-    plt.xticks(x)
+def mostrar(graficos: dict[str, bytes]) -> None:
+    """Abre una ventana con los gráficos, uno debajo de otro."""
+    figura, ejes = plt.subplots(len(graficos), 1, figsize=(9, 8))
+    for eje, png in zip(ejes, graficos.values()):
+        eje.imshow(plt.imread(BytesIO(png)))
+        eje.axis("off")
+    figura.canvas.manager.set_window_title("FixIt Campus · Gráficos")
+    figura.tight_layout()
     plt.show()
-mostrar_grafica()
+
+
+def main() -> None:
+    """Muestra el análisis por consola y guarda los gráficos."""
+    incidencias = cargar_incidencias(FICHERO_JSON)
+    print(f"{len(incidencias)} incidencias leídas\n")
+
+    medias = tiempo_medio_resolucion(incidencias)
+    print("Tiempo medio de resolución por categoría:")
+    for categoria, horas in medias.items():
+        print(f"  {categoria:<15} {horas:7.1f} h")
+
+    hoy = date.today()
+    retrasadas = fuera_de_plazo(incidencias, hoy)
+    print(f"\nFuera de plazo a {hoy:%d/%m/%Y}: {len(retrasadas)}")
+    for inc in retrasadas:
+        print(f"  {inc['codigo']}  objetivo {inc['fecha_objetivo']:%d/%m}")
+
+    espacios = espacios_con_mas_averias(incidencias)
+    print("\nEspacios con más averías:")
+    for espacio, total in espacios:
+        print(f"  {espacio:<8} {total}")
+
+    SALIDA.mkdir(exist_ok=True)
+    graficos = {
+        "tiempo_medio_por_categoria.png": grafico_barras(
+            medias, "Tiempo medio de resolución por categoría (horas)"),
+        "espacios_con_mas_averias.png": grafico_barras(
+            dict(espacios), "Espacios con más averías"),
+    }
+    print()
+    for nombre, png in graficos.items():
+        (SALIDA / nombre).write_bytes(png)
+        print(f"Gráfico guardado: graficos/{nombre}")
+
+    mostrar(graficos)
+
+
+if __name__ == "__main__":
+    main()
