@@ -2,7 +2,7 @@
 /plugins/
 /sonar/
 /.settings/
-/target/
+backend/target/
 /.idea/
 /.vscode/
 /data-storage/
