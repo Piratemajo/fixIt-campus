@@ -1,4 +1,4 @@
-package accesoDatos;
+package com.fixitcampus.accesoDatos;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFRun;

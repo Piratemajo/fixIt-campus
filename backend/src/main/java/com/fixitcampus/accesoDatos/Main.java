@@ -1,4 +1,4 @@
-package accesoDatos;
+package com.fixitcampus.accesoDatos;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
