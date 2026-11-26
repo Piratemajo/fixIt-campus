@@ -18,9 +18,9 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExeclService{
+public class ExcelService{
 
-    private static final Logger log = LoggerFactory.getLogger(ExeclService.class);
+    private static final Logger log = LoggerFactory.getLogger(ExcelService.class);
 
     public static void main(String[] args) {
         crearPlantillas("Excel.xlsx");

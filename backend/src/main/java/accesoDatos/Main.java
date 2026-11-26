@@ -23,12 +23,12 @@ public class Main {
 
     public static void main(String[] args) {
         log.info("1. Plantilla Excel");
-        ExeclService.main(args);
+        ExcelService.main(args);
 
         try (Connection con = obtenerConexion()) {
             log.info("2. Insertar el Excel relleno");
             if (new File(EXCEL_RELLENO).exists()) {
-                ExeclService.importarExcel(EXCEL_RELLENO, con);
+                ExcelService.importarExcel(EXCEL_RELLENO, con);
             } else {
                 log.warn("No existe {}: copia Excel.xlsx con ese nombre y rellénalo", EXCEL_RELLENO);
             }
@@ -43,18 +43,26 @@ public class Main {
 
     private static Connection obtenerConexion() throws Exception {
         Properties props = new Properties();
-
+       try {
+        
+       
         try (InputStream input = Main.class.getClassLoader().getResourceAsStream("Properties.properties")) {
             if (input == null) {
                 throw new RuntimeException("No se encontró Properties.properties en el classpath");
             }
             props.load(input);
         }
+        
 
-        String url = props.getProperty("db.url").trim();
+        
+
+        
+        } catch (Exception e) {
+        log.error("Abrir y correr Docker");
+       }
+       String url = props.getProperty("db.url").trim();
         String user = props.getProperty("db.user").trim();
         String password = props.getProperty("db.password").trim();
-
-        return DriverManager.getConnection(url, user, password);
+       return DriverManager.getConnection(url, user, password);
     }
 }
