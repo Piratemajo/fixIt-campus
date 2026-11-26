@@ -2,13 +2,11 @@
 
 from io import BytesIO
 
-import matplotlib
 from matplotlib.figure import Figure
 
 
-
 def grafico_barras(datos: dict[str, float], titulo: str) -> bytes:
-    
+
     figura = Figure(figsize=(8, 1.2 + 0.4 * len(datos)), dpi=150)
     ejes = figura.add_subplot()
 
