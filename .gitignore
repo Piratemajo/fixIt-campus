@@ -11,6 +11,8 @@ backend/target/
 /javadocs/
 /local-deps/
 
+analytics/__pycache__
+
 .classpath
 .factorypath
 .project
