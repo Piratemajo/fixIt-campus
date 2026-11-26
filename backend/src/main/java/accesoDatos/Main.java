@@ -4,8 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 
 /**
  * Ejecuta todo lo de Acceso a Datos:
@@ -17,19 +19,13 @@ import java.sql.DriverManager;
 public class Main {
 
     private static final Logger log = LoggerFactory.getLogger(Main.class);
-
-    // Datos de conexión a la base de datos (cámbialos por los vuestros)
-    private static final String URL = "jdbc:postgresql://localhost:5432/fixit_campus";
-    private static final String USUARIO = "root";
-    private static final String PASSWORD = "root";
-
     private static final String EXCEL_RELLENO = "Excel_relleno.xlsx";
 
     public static void main(String[] args) {
         log.info("1. Plantilla Excel");
         ExeclService.main(args);
 
-        try (Connection con = DriverManager.getConnection(URL, USUARIO, PASSWORD)) {
+        try (Connection con = obtenerConexion()) {
             log.info("2. Insertar el Excel relleno");
             if (new File(EXCEL_RELLENO).exists()) {
                 ExeclService.importarExcel(EXCEL_RELLENO, con);
@@ -43,5 +39,22 @@ public class Main {
         } catch (Exception e) {
             log.error("Error en Acceso a Datos", e);
         }
+    }
+
+    private static Connection obtenerConexion() throws Exception {
+        Properties props = new Properties();
+
+        try (InputStream input = Main.class.getClassLoader().getResourceAsStream("Properties.properties")) {
+            if (input == null) {
+                throw new RuntimeException("No se encontró Properties.properties en el classpath");
+            }
+            props.load(input);
+        }
+
+        String url = props.getProperty("db.url").trim();
+        String user = props.getProperty("db.user").trim();
+        String password = props.getProperty("db.password").trim();
+
+        return DriverManager.getConnection(url, user, password);
     }
 }
