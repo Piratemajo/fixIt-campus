@@ -2,8 +2,10 @@
 /plugins/
 /sonar/
 /.settings/
-/target/
+backend/target/
 /.idea/
+/idea/
+/backend/.idea
 /.vscode/
 /data-storage/
 /javadocs/
